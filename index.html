@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#0b0b10" />
+  <meta name="description" content="A premium NFC birthday experience — tap to open." />
+  <title>Happy Birthday ✨</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Ambient background -->
+  <div class="bg" aria-hidden="true">
+    <div class="bg__grain"></div>
+    <div class="bg__orb bg__orb--a"></div>
+    <div class="bg__orb bg__orb--b"></div>
+    <div class="bg__orb bg__orb--c"></div>
+  </div>
+
+  <header class="topbar">
+    <div class="topbar__left">
+      <div class="badge">
+        <span class="badge__dot"></span>
+        <span class="badge__text">Tap-to-open keepsake</span>
+      </div>
+    </div>
+    <div class="topbar__right">
+      <button class="iconbtn" id="soundToggle" type="button" aria-label="Toggle sound">
+        <span class="iconbtn__icon" aria-hidden="true">♪</span>
+        <span class="iconbtn__label">Sound</span>
+      </button>
+      <button class="iconbtn" id="shareBtn" type="button" aria-label="Share">
+        <span class="iconbtn__icon" aria-hidden="true">↗</span>
+        <span class="iconbtn__label">Share</span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero" id="top">
+      <div class="hero__content">
+        <p class="kicker">Happy Birthday</p>
+        <h1 class="title" id="birthdayName">Nikki ✨</h1>
+        <p class="subtitle" id="birthdaySubtitle">
+          A tiny card. A big reminder: you’re loved — loudly, endlessly, and by an entire crew.
+        </p>
+
+        <div class="ctaRow">
+          <a class="btn btn--primary" href="#messages">Read the messages</a>
+          <a class="btn btn--ghost" href="#moments">See the moments</a>
+        </div>
+
+        <div class="hero__stats" aria-label="Highlights">
+          <div class="stat">
+            <div class="stat__num" id="daysCount">∞</div>
+            <div class="stat__label">Reasons you’re special</div>
+          </div>
+          <div class="stat">
+            <div class="stat__num">100%</div>
+            <div class="stat__label">Main character energy</div>
+          </div>
+          <div class="stat">
+            <div class="stat__num">Always</div>
+            <div class="stat__label">We’ve got your back</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero__card" aria-hidden="true">
+        <div class="glass">
+          <div class="glass__sparkle"></div>
+          <div class="glass__inner">
+            <p class="glass__mini">To: <span id="toName">Nikki</span></p>
+            <p class="glass__big">Tap, smile,<br/>repeat.</p>
+            <p class="glass__mini glass__mini--muted">This page is your keepsake.</p>
+          </div>
+        </div>
+      </div>
+
+      <a class="scrollHint" href="#messages" aria-label="Scroll to messages">
+        <span class="scrollHint__dot"></span>
+        <span class="scrollHint__text">Scroll</span>
+      </a>
+    </section>
+
+    <!-- MESSAGES -->
+    <section class="section" id="messages">
+      <div class="section__head">
+        <h2 class="h2">Your Birthday Wall</h2>
+        <p class="p">
+          Remember that card everyone signed? It lives here forever. Zoom in and soak it in.
+        </p>
+      </div>
+
+      <div class="grid grid--2">
+        <div class="card">
+          <div class="card__head">
+            <h3 class="h3">The original card</h3>
+            <p class="p p--muted">Tap to open full screen. Pinch to zoom on mobile.</p>
+          </div>
+
+          <button class="media media--clickable" id="openCardPhoto" type="button" aria-label="Open the signed card photo">
+            <img src="assets/birthday-card-messages.jpg" alt="Birthday card with handwritten messages from friends" loading="lazy" />
+            <div class="media__overlay">
+              <span class="pill">View in full screen</span>
+            </div>
+          </button>
+        </div>
+
+        <div class="card">
+          <div class="card__head">
+            <h3 class="h3">Add a fresh message (Phase 1 MVP)</h3>
+            <p class="p p--muted">
+              This mini guestbook is stored in your browser so it works on GitHub Pages.
+              For production, we’ll store messages in a real database with moderation.
+            </p>
+          </div>
+
+          <form class="form" id="guestbookForm">
+            <label class="label">
+              <span>Your name</span>
+              <input class="input" name="name" placeholder="e.g., Raga" maxlength="40" required />
+            </label>
+            <label class="label">
+              <span>Your message</span>
+              <textarea class="textarea" name="message" placeholder="Write something sweet…" maxlength="260" required></textarea>
+            </label>
+            <div class="form__row">
+              <button class="btn btn--primary" type="submit">Add message</button>
+              <button class="btn btn--ghost" id="clearGuestbook" type="button">Clear</button>
+            </div>
+          </form>
+
+          <div class="guestbook" id="guestbookList" aria-live="polite"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MOMENTS -->
+    <section class="section" id="moments">
+      <div class="section__head">
+        <h2 class="h2">Moments we’d replay</h2>
+        <p class="p">
+          Add 6–12 photos to make this feel like a tiny museum of your friendship.
+        </p>
+      </div>
+
+      <div class="gallery" id="gallery">
+        <!-- Replace placeholders with real images in assets/ and update data-img -->
+        <button class="gallery__item" data-img="assets/placeholder-1.jpg" type="button" aria-label="Open photo 1">
+          <div class="gallery__ph" aria-hidden="true">
+            <span>+ Add photo</span>
+            <small>assets/placeholder-1.jpg</small>
+          </div>
+        </button>
+        <button class="gallery__item" data-img="assets/placeholder-2.jpg" type="button" aria-label="Open photo 2">
+          <div class="gallery__ph" aria-hidden="true">
+            <span>+ Add photo</span>
+            <small>assets/placeholder-2.jpg</small>
+          </div>
+        </button>
+        <button class="gallery__item" data-img="assets/placeholder-3.jpg" type="button" aria-label="Open photo 3">
+          <div class="gallery__ph" aria-hidden="true">
+            <span>+ Add photo</span>
+            <small>assets/placeholder-3.jpg</small>
+          </div>
+        </button>
+        <button class="gallery__item" data-img="assets/placeholder-4.jpg" type="button" aria-label="Open photo 4">
+          <div class="gallery__ph" aria-hidden="true">
+            <span>+ Add photo</span>
+            <small>assets/placeholder-4.jpg</small>
+          </div>
+        </button>
+      </div>
+
+      <div class="note">
+        <div class="note__icon" aria-hidden="true">⚡</div>
+        <div>
+          <div class="note__title">Premium feel, fast</div>
+          <div class="note__text">
+            Replace placeholders with real photos. Compress JPEGs under ~400KB each so it loads instantly on tap.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CLOSING -->
+    <section class="section section--tight">
+      <div class="closing">
+        <h2 class="h2">One last thing</h2>
+        <p class="p">
+          This card works next year too. So does our love for you.
+        </p>
+        <a class="btn btn--primary" href="#top">Back to top</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Modal -->
+  <div class="modal" id="modal" aria-hidden="true" role="dialog" aria-label="Image viewer">
+    <div class="modal__backdrop" id="modalClose" aria-hidden="true"></div>
+    <div class="modal__panel" role="document">
+      <div class="modal__bar">
+        <div class="modal__title" id="modalTitle">Preview</div>
+        <button class="iconbtn iconbtn--small" id="modalX" type="button" aria-label="Close">
+          <span class="iconbtn__icon" aria-hidden="true">✕</span>
+          <span class="iconbtn__label">Close</span>
+        </button>
+      </div>
+      <div class="modal__body">
+        <img id="modalImg" alt="" />
+      </div>
+      <div class="modal__hint">Tip: pinch to zoom on mobile.</div>
+    </div>
+  </div>
+
+  <!-- Tiny ambient audio (optional) -->
+  <audio id="audio" loop preload="none">
+    <!-- Drop a short royalty-free mp3 into assets/ambient.mp3 -->
+    <source src="assets/ambient.mp3" type="audio/mpeg">
+  </audio>
+
+  <script src="script.js"></script>
+</body>
+</html>
