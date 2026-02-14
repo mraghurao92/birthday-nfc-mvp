@@ -440,3 +440,97 @@ body{
   transform: translateY(-1px);
   border-color: rgba(255,255,255,.18);
 }
+
+.surprise__button{
+  padding: 14px 28px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.14);
+  background: rgba(255,255,255,.06);
+  color: rgba(255,255,255,.92);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all .2s ease;
+  letter-spacing: .3px;
+}
+
+.surprise__button:hover{
+  transform: translateY(-2px);
+  border-color: rgba(255,255,255,.28);
+  background: rgba(255,255,255,.09);
+  box-shadow: 0 12px 32px rgba(0,0,0,.35);
+}
+
+.surprise__button:active{
+  transform: translateY(0);
+}
+
+.surprise__button:disabled{
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.surprise__reveal{
+  width: 100%;
+  max-width: 600px;
+  text-align: center;
+  margin-top: 16px;
+}
+
+.surprise__suspense{
+  font-size: 16px;
+  color: rgba(255,255,255,.72);
+  margin: 0 0 20px 0;
+  animation: fadeIn .4s ease;
+  letter-spacing: .2px;
+}
+
+.surprise__content{
+  animation: fadeIn .5s ease .3s both;
+}
+
+.surprise__image{
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  border-radius: var(--radius2);
+  border: 1px solid rgba(255,255,255,.12);
+  margin-bottom: 28px;
+  box-shadow: 0 20px 60px rgba(0,0,0,.35);
+}
+
+.surprise__message{
+  padding: 0 18px;
+}
+
+.surprise__title{
+  font-family: "Playfair Display", serif;
+  font-size: 28px;
+  font-weight: 700;
+  margin: 0 0 12px 0;
+  color: rgba(255,255,255,.92);
+  letter-spacing: -.3px;
+}
+
+.surprise__signature{
+  font-size: 16px;
+  color: rgba(255,255,255,.78);
+  margin: 0 0 8px 0;
+  font-weight: 500;
+}
+
+.surprise__footnote{
+  font-size: 12px;
+  color: rgba(255,255,255,.55);
+  margin: 0;
+  font-style: italic;
+}
+
+@keyframes fadeIn{
+  from{
+    opacity: 0;
+  }
+  to{
+    opacity: 1;
+  }
+}

@@ -180,3 +180,30 @@ clearBtn?.addEventListener("click", () => {
 });
 
 renderGuestbook();
+
+// ===== SURPRISE FEATURE (Simba) =====
+const surpriseBtn = $("#surpriseBtn");
+const surpriseReveal = $("#surpriseReveal");
+const surpriseContent = surpriseReveal?.querySelector(".surprise__content");
+const surpriseSuspense = surpriseReveal?.querySelector(".surprise__suspense");
+
+let surpriseRevealed = false;
+
+surpriseBtn?.addEventListener("click", () => {
+  if (surpriseRevealed) return;
+  surpriseRevealed = true;
+
+  // Hide the button completely (feels cleaner than "disabled")
+  surpriseBtn.style.display = "none";
+
+  // Show reveal container and suspense only
+  if (surpriseReveal) surpriseReveal.style.display = "block";
+  if (surpriseSuspense) surpriseSuspense.style.display = "block";
+  if (surpriseContent) surpriseContent.style.display = "none";
+
+  // After 2 second, hide suspense and show the content
+  setTimeout(() => {
+    if (surpriseSuspense) surpriseSuspense.style.display = "none";
+    if (surpriseContent) surpriseContent.style.display = "block";
+  }, 2000);
+});

@@ -12,7 +12,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="styles.css" />
+  <link rel="preload" as="image" href="assets/images/simba.jpg">
 </head>
+
 <body>
 <!-- Ambient background -->
 <div class="bg" aria-hidden="true">
@@ -69,7 +71,8 @@
           <p class="glass__mini">To: <span id="toName">Nikki</span></p>
           <p class="glass__mini glass__mini--muted">
             Chal yaar,
-            paise kamate aur duniya ghoomte.</p>
+            paise kamate aur duniya ghoomte.
+          </p>
         </div>
       </div>
     </div>
@@ -97,9 +100,9 @@
 
         <button class="media media--clickable" id="openCardPhoto" type="button" aria-label="Open the signed card photo">
           <img src="assets/birthday-card-messages.jpg" alt="Birthday card with handwritten messages from friends" loading="lazy" />
-          <div class="media__overlay">
-            <span class="pill">View in full screen</span>
-          </div>
+          <span class="media__overlay">
+              <span class="pill">View in full screen</span>
+            </span>
         </button>
       </div>
     </div>
@@ -113,20 +116,19 @@
     </div>
 
     <div class="placeGrid">
-      <!-- Orange Beach -->
       <article class="placeCard placeCard--beach">
         <div class="placeCard__media" style="background-image:url('assets/places/orange-beach.jpg');"></div>
         <div class="placeCard__overlay"></div>
         <div class="placeCard__content">
           <div class="placeCard__title">Orange Beach <span class="placeCard__year">2026</span></div>
-          <div class="placeCard__text">Budda hote hi jara buddon ka place gaya 😂
+          <div class="placeCard__text">
+            Budda hote hi jara buddon ka place gaya 😂
             <br>
             First speakeasy experience unlocked and I loved it.
           </div>
         </div>
       </article>
 
-      <!-- Miami -->
       <article class="placeCard placeCard--miami">
         <div class="placeCard__media" style="background-image:url('assets/places/miami.jpg');"></div>
         <div class="placeCard__overlay"></div>
@@ -136,7 +138,6 @@
         </div>
       </article>
 
-      <!-- San Jose -->
       <article class="placeCard placeCard--sj">
         <div class="placeCard__media" style="background-image:url('assets/places/san-jose.jpg');"></div>
         <div class="placeCard__overlay"></div>
@@ -146,7 +147,6 @@
         </div>
       </article>
 
-      <!-- Arkansas -->
       <article class="placeCard placeCard--ar">
         <div class="placeCard__media" style="background-image:url('assets/places/arkansas.jpg');"></div>
         <div class="placeCard__overlay"></div>
@@ -158,14 +158,37 @@
     </div>
   </section>
 
-  <!-- CLOSING -->
+  <!-- CLOSING (with hidden Simba surprise) -->
   <section class="section section--tight">
     <div class="closing">
       <h2 class="h2">One last thing</h2>
+
       <p class="p">
-        Chauuu. Simba ka tatti khaoo 😂
+        Chauuu. Simba ka tatti khaoo 😂<br>
+        <span class="p--muted">(Okay fine… don’t leave yet.)</span>
       </p>
-      <a class="btn btn--primary" href="#top">Back to top</a>
+
+      <!-- Hidden surprise -->
+      <button class="surprise__button" id="surpriseBtn" type="button">
+        Someone else wanted to wish you too…
+      </button>
+
+      <div class="surprise__reveal" id="surpriseReveal" style="display:none;">
+        <p class="surprise__suspense" aria-live="polite">
+          I know you love me. I love you more.
+        </p>
+
+        <div class="surprise__content" style="display:none;">
+          <img src="assets/images/simba.jpg" alt="Simba" class="surprise__image" loading="lazy" />
+          <div class="surprise__message">
+            <h3 class="surprise__title">Happy Birthday Mommy ❤️</h3>
+            <p class="surprise__signature">Love, Simba 🐾</p>
+            <p class="surprise__footnote">(He definitely expects extra treats today.)</p>
+          </div>
+        </div>
+      </div>
+
+      <a class="btn btn--primary" href="#top" style="margin-top:16px;">Back to top</a>
     </div>
   </section>
 </main>
