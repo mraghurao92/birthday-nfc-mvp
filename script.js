@@ -201,9 +201,9 @@ surpriseBtn?.addEventListener("click", () => {
   if (surpriseSuspense) surpriseSuspense.style.display = "block";
   if (surpriseContent) surpriseContent.style.display = "none";
 
-  // After 2 second, hide suspense and show the content
+  // After 1 second, hide suspense and show the content
   setTimeout(() => {
     if (surpriseSuspense) surpriseSuspense.style.display = "none";
     if (surpriseContent) surpriseContent.style.display = "block";
-  }, 2000);
+  }, 1000);
 });
